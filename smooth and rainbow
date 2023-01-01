@@ -1,0 +1,25 @@
+void setup() {
+  pinMode(9,OUTPUT); pinMode(10,OUTPUT); pinMode(11,OUTPUT);
+
+}
+void kirmizi(int a=0){analogWrite(9,a);analogWrite(10,255);analogWrite(11,255);delay(5);}
+void yesil(int a=0){analogWrite(9,255);analogWrite(10,a);analogWrite(11,255);delay(5);}
+void mavi(int a=0){analogWrite(9,255);analogWrite(10,255);analogWrite(11,a);delay(5);}
+void sari(int a=0){analogWrite(9,a);analogWrite(10,a);analogWrite(11,255);delay(5);}
+void mor(int a=0){analogWrite(9,a);analogWrite(10,255);analogWrite(11,a);delay(5);}
+void turkuaz(int a=0){analogWrite(9,255);analogWrite(10,a);analogWrite(11,a);delay(5);}
+void beyaz(int a=0){analogWrite(9,a);analogWrite(10,a);analogWrite(11,a);delay(5);}
+void rainbow(){kirmizi();delay(100); yesil();delay(100); mavi();delay(100);sari();delay(100); mor();delay(100);turkuaz();delay(100);beyaz();delay(100);}
+void smooth(){
+  for(int i=255;i>0;i--){kirmizi(i);}for(int i=0;i<255;i++){kirmizi(i);}
+  for(int i=255;i>0;i--){yesil(i);}for(int i=0;i<255;i++){yesil(i);}
+  for(int i=255;i>0;i--){mavi(i);}for(int i=0;i<255;i++){mavi(i);}
+  for(int i=255;i>0;i--){sari(i);}for(int i=0;i<255;i++){sari(i);}
+  for(int i=255;i>0;i--){mor(i);}for(int i=0;i<255;i++){mor(i);}
+  for(int i=255;i>0;i--){turkuaz(i);}for(int i=0;i<255;i++){turkuaz(i);}
+}
+
+
+void loop() {
+  smooth();
+}

@@ -1,0 +1,22 @@
+#include <Adafruit_NeoPixel.h> 
+
+int ledSayisi = 120; 
+int led = 7;        
+Adafruit_NeoPixel serit(ledSayisi, led, NEO_GRB + NEO_KHZ800); 
+
+void setup() {
+  serit.begin();                  
+  serit.setBrightness(80); 
+}
+
+void loop() {
+  for(long x = 0; x < 5*65536; x += 256) {   
+    for(int y=0; y<ledSayisi; y++) {        
+      int z = x + (y * 65536L / ledSayisi); 
+      serit.setPixelColor(y, serit.gamma32(serit.ColorHSV(z))); 
+    }
+    serit.show();   
+    delay(5); 
+  }
+  
+}
